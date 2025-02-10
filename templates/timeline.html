@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间线 - Love Chronicle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>时间线</h1>
+    </header>
+    <main>
+        <div class="timeline">
+            {% for event in timeline %}
+            <div class="event">
+                <div class="event-date">{{ event.date }}</div>
+                <div class="event-content">
+                    <h2>{{ event.title }}</h2>
+                    <p>{{ event.description }}</p>
+                    <img src="{{ url_for('static', filename=event.image) }}" alt="{{ event.title }}">
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+</html>

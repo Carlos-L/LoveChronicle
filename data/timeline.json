@@ -1,0 +1,14 @@
+[
+    {
+        "date": "2023-01-01",
+        "title": "我们的第一次相遇",
+        "description": "在朋友的聚会上，我第一次见到了你。",
+        "image": "images/first_meet.jpg"
+    },
+    {
+        "date": "2023-02-14",
+        "title": "第一个情人节",
+        "description": "我们一起度过了一个浪漫的情人节。",
+        "image": "images/valentine.jpg"
+    }
+]

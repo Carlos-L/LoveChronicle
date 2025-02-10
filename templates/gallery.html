@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>照片墙 - Love Chronicle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>照片墙</h1>
+    </header>
+    <main>
+        <div class="gallery-container">
+            {% for photo in gallery %}
+            <div class="photo-card">
+                <img src="{{ url_for('static', filename=photo.image) }}" alt="{{ photo.caption }}" class="gallery-image">
+                <p class="photo-caption">{{ photo.caption }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Love Chronicle</p>
+    </footer>
+</body>
+</html>

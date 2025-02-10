@@ -1,0 +1,186 @@
+/* 基本样式 */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #ff6f61;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    margin: 0;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+nav a:hover {
+    color: #ff6f61;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+#welcome h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: #ff6f61;
+}
+
+#welcome p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* 小狼狼动画 */
+.wolf {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background-image: url('/static/assets/wolf.png');
+    background-size: cover;
+    animation: wolfIdle 2s infinite;
+    cursor: pointer;
+    user-select: none; /* 禁止文本选中 */
+    outline: none; /* 禁止聚焦时的轮廓 */
+}
+
+@keyframes wolfIdle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes wolfJump {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-50px); }
+    100% { transform: translateY(0); }
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 照片墙样式 */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+}
+
+.photo-card {
+    flex: 1 1 calc(33.333% - 20px);
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    transition: transform 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: scale(1.05);
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.photo-caption {
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+/* 留言板样式 */
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.message-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-author {
+    font-weight: bold;
+    color: #ff6f61;
+    margin: 0 0 10px 0;
+}
+
+.message-content {
+    margin: 0;
+    color: #555;
+}
+
+.message-form {
+    padding: 20px;
+    background-color: white;
+    border-top: 1px solid #ddd;
+}
+
+.message-form input,
+.message-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.message-form button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.message-form button:hover {
+    background-color: #e65a50;
+}
