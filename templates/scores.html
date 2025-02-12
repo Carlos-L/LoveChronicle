@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>累计得分</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+</head>
+<body>
+    <div id="score-container">
+        <h1>累计得分：{{ total_score }}</h1>
+        <button onclick="window.location.href='/game'">返回首页</button>
+    </div>
+</body>
+</html>

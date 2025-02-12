@@ -1,0 +1,72 @@
+[
+    {
+        "question": "情人节是哪一天？",
+        "type": "choice",
+        "options": {
+            "A": "2月14日",
+            "B": "3月14日",
+            "C": "12月25日"
+        },
+        "correct_answer": "A"
+    },
+    {
+        "question": "你最喜欢的颜色是什么？",
+        "type": "choice",
+        "options": {
+            "A": "红色",
+            "B": "蓝色",
+            "C": "绿色"
+        },
+        "correct_answer": "B"
+    },
+    {
+        "question": "你最喜欢的水果是什么？",
+        "type": "choice",
+        "options": {
+            "A": "草莓",
+            "B": "车厘子",
+            "C": "榴莲"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "你最喜欢的数字是什么？",
+        "type": "choice",
+        "options": {
+            "A": "0",
+            "B": "1",
+            "C": "2"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "e的第一个重复四位数是多少？",
+        "type": "choice",
+        "options": {
+            "A": "7142",
+            "B": "3746",
+            "C": "1828"
+        },
+        "correct_answer": "C"
+    },
+    {
+        "question": "爱情中最重要的是什么？",
+        "type": "choice",
+        "options": { "A": "信任", "B": "金钱", "C": "浪漫" },
+        "correct_answer": "A"
+    },
+    {
+        "question": "情侣间最常见的纪念日是？",
+        "type": "choice",
+        "options": { "A": "第一次见面", "B": "第一次吵架", "C": "第一次旅行" },
+        "correct_answer": "A"
+    },
+    {
+        "question": "请填写爱的另一种表达方式。",
+        "type": "fill_in_the_blank",
+        "correct_answer": "关心"
+    }
+
+    
+    
+]

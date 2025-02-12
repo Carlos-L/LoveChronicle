@@ -6,10 +6,25 @@
     <title>留言板 - Love Chronicle</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
+    <audio id="background-music" loop>
+        <source src="{{ url_for('static', filename='audio/background.mp3') }}" type="audio/mpeg">
+        您的浏览器不支持音频播放。
+    </audio>
     <header>
         <h1>留言板</h1>
     </header>
+    <nav>
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/timeline">时间线</a></li>
+            <li><a href="/game">游戏</a></li>
+            <li><a href="/gallery">照片墙</a></li>
+            <li><a href="/messages">留言板</a></li>
+            <li><a href="/lottery">抽奖</a></li>
+        </ul>
+    </nav>
     <main>
         <div class="messages-container">
             {% for message in messages %}
@@ -22,6 +37,7 @@
         <form id="message-form" class="message-form">
             <input type="text" id="name" name="name" placeholder="你的名字" required>
             <textarea id="content" name="content" placeholder="写下你的留言..." required></textarea>
+            <div></div>
             <button type="submit">提交留言</button>
         </form>
     </main>

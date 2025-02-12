@@ -1,0 +1,11 @@
+{
+    "A": [
+        {"type": "photo", "name": "海边美照", "image": "images/beautiful1.jpg","kind": "A"},
+        {"type": "card", "name": "按摩卡", "description": "我为小狼狼按摩30分钟","kind": "A"},
+        {"type": "card", "name": "道歉卡", "description": "我为小狼狼准备惊喜礼物","kind": "A"}
+    ],
+    "B": [
+        {"type": "photo", "name": "睡颜丑照", "image": "images/funny1.jpg","kind": "B"},
+        {"type": "card", "name": "服务卡", "description": "小狼狼为我做早餐","kind": "B"}
+    ]
+}

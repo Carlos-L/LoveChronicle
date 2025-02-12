@@ -10,18 +10,42 @@
     <header>
         <h1>照片墙</h1>
     </header>
+    <nav>
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/timeline">时间线</a></li>
+            <li><a href="/game">游戏</a></li>
+            <li><a href="/gallery">照片墙</a></li>
+            <li><a href="/messages">留言板</a></li>
+            <li><a href="/lottery">抽奖</a></li>
+        </ul>
+    </nav>
     <main>
         <div class="gallery-container">
             {% for photo in gallery %}
-            <div class="photo-card">
+            <div class="gallery-photo-card">
                 <img src="{{ url_for('static', filename=photo.image) }}" alt="{{ photo.caption }}" class="gallery-image">
-                <p class="photo-caption">{{ photo.caption }}</p>
+                <div class="gallery-photo-overlay">
+                    <p class="gallery-photo-caption">{{ photo.caption }}</p>
+                </div>
             </div>
             {% endfor %}
         </div>
     </main>
     <footer>
-        <p>&copy; 2025 Love Chronicle</p>
+        <p>&copy; 2025 Love Chronicle </p>
+        <!-- <p>Contact us: 2401110243@stu.pku.edu.cn</p> -->
     </footer>
+
+    <!-- 大图预览模态框 -->
+    <div id="gallery-image-modal" class="gallery-modal">
+        <span class="gallery-close">&times;</span>
+        <img id="gallery-modal-image" class="gallery-modal-content">
+        <div class="gallery-modal-caption"></div>
+        <a class="gallery-prev">&#10094;</a>
+        <a class="gallery-next">&#10095;</a>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
 </body>
 </html>

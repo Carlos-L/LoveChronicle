@@ -1,17 +1,22 @@
 /* 基本样式 */
+
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f9f9f9;
+    background: linear-gradient(135deg, #ffe6e4, #ff8e53,blue);
     color: #333;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #ff6f61;
+    /* background-color: #ff6f61; */
+    background: linear-gradient(90deg, #ffbab4, #ff6f61, #ffbab4);
     color: white;
     padding: 20px;
     text-align: center;
+    /* width: 100%; */
+    border-bottom-left-radius: 20px;   /* 只设置左下角圆角 */
+    border-bottom-right-radius: 20px;  /* 只设置右下角圆角 */
 }
 
 header h1 {
@@ -25,26 +30,84 @@ header p {
     margin: 0;
 }
 
+/* 导航 */
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* 设置导航栏的背景色和高度 */
 nav {
-    background-color: #333;
-    padding: 10px;
+    margin: auto;
+    display: block;
     text-align: center;
+    /* width: 80%; */
+    background: linear-gradient(90deg, #ff8c00, #f08); /* 渐变背景 */
+    padding: 12px 0;  /* 上下内边距 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 更柔和的阴影 */
+    border-radius: 20px; /* 给导航栏四个角加圆角 */
+    width: 100%;
+    
+}
+/* 设置导航项列表为水平居中 */
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
 }
 
-nav a {
-    color: white;
-    margin: 0 15px;
+/* 设置每个导航项 */
+nav ul li {
+    margin: 0 20px; /* 每个导航项之间的间距 */
+}
+
+/* 设置导航链接的样式 */
+nav ul li a {
     text-decoration: none;
-    font-size: 1.1rem;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px; /* 增加按钮的内边距 */
+    border-radius: 25px; /* 圆形按钮效果 */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease; /* 添加平滑的过渡效果 */
 }
 
-nav a:hover {
-    color: #ff6f61;
+/* 鼠标悬停时的效果 */
+nav ul li a:hover {
+    background-color: #fff;  /* 悬停时背景色变为白色 */
+    color: #333; /* 字体颜色变为深色 */
+    transform: scale(1.1); /* 稍微放大 */
+}
+
+/* 鼠标按下时的效果 */
+nav ul li a:active {
+    transform: scale(0.95);  /* 鼠标点击时稍微缩小 */
+}
+
+/* 响应式设计：在小屏幕下调整为垂直排列 */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column; /* 垂直排列 */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* 每项之间有适当的间距 */
+    }
+
+    nav {
+        position: relative; /* 在小屏幕下，取消固定位置 */
+        box-shadow: none; /* 小屏幕下去掉阴影 */
+        border-radius: 0; /* 取消圆角 */
+    }
 }
 
 main {
     padding: 20px;
     text-align: center;
+    margin-bottom: 60px; /* 确保底部内容不会被 footer 遮挡 */
+
 }
 
 #welcome h2 {
@@ -85,49 +148,143 @@ main {
 }
 
 footer {
+    margin-top: 20px;  /* 为 footer 和上面内容之间留出一些空间 */
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 5px;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
+
 /* 照片墙样式 */
 .gallery-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
     padding: 20px;
 }
 
-.photo-card {
-    flex: 1 1 calc(33.333% - 20px);
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+.gallery-photo-card {
+    position: relative;
     overflow: hidden;
-    background-color: white;
-    transition: transform 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.photo-card:hover {
+.gallery-photo-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-image {
     width: 100%;
     height: auto;
     display: block;
+    transition: transform 0.3s ease;
 }
 
-.photo-caption {
+
+
+.timeline-image {
+    width: 85%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+    object-fit: cover;  /* 这样可以确保图片被裁剪以适应圆形区域 */
+    border-radius: 5%;  /* 将图片设置为圆形 */
+    margin: auto;
+    display: block;
     text-align: center;
-    padding: 10px;
-    font-size: 1rem;
-    color: #555;
+    /* padding: 100px; */
 }
+
+.gallery-photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-photo-card:hover .photo-overlay {
+    transform: translateY(0);
+}
+
+.gallery-photo-caption {
+    margin: 0;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* gallery大图预览模态框 */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery-modal-content {
+    width: auto;
+    height: 80%;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;  /* 水平和垂直居中 */
+    min-width: 70vh;
+}
+
+.gallery-modal-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.gallery-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.gallery-prev, .gallery-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px;
+    user-select: none;
+}
+
+.gallery-prev {
+    left: 20px;
+}
+
+.gallery-next {
+    right: 20px;
+}
+
 /* 留言板样式 */
 .messages-container {
     display: flex;
@@ -145,6 +302,8 @@ footer {
 }
 
 .message-author {
+    display: flex;
+    justify-content: center;  /* 水平居中 */
     font-weight: bold;
     color: #ff6f61;
     margin: 0 0 10px 0;
@@ -156,14 +315,15 @@ footer {
 }
 
 .message-form {
-    padding: 20px;
-    background-color: white;
+    padding: 10px;
+    background-color: rgb(255, 216, 216);
     border-top: 1px solid #ddd;
+    border-radius: 10px;
 }
 
 .message-form input,
 .message-form textarea {
-    width: 100%;
+    width: 95%;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid #ddd;
@@ -183,4 +343,385 @@ footer {
 
 .message-form button:hover {
     background-color: #e65a50;
+}
+
+/* 页面背景 */
+
+
+/* 飞机容器 */
+#airplane-container {
+    position: relative;
+    width: 98%;
+    height: 375px;
+    background-color: transparent;
+}
+
+/* 飞机的样式 */
+#airplane1 {
+    position: absolute;
+    top: 60%;
+    left: -100px;
+    width: 30px;
+    height: 60px;
+    background-color: #ff6347;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 三角形飞机 */
+    animation: flyAirplane 3s  linear infinite;
+}
+
+#airplane2 {
+    position: absolute;
+    top: 50%;
+    left: -80px;
+    width: 30px;
+    height: 60px;
+    background-color: #9b77f6;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 三角形飞机 */
+    animation: flyAirplane2 3s linear infinite;
+}
+
+#airplane3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40px;
+    height: 80px;
+    background-color: #087fff;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%); /* 三角形飞机 */
+    transform-origin: center;
+    animation: flyAirplane3 6s linear infinite;
+}
+#airplane4 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;  /* 根据图片的大小调整 */
+    height: 50px; /* 根据图片的大小调整 */
+    transform-origin: center;
+    animation: flyAirplane4 10s linear infinite;
+}
+#airplane5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;  /* 根据图片的大小调整 */
+    height: 50px; /* 根据图片的大小调整 */
+    transform-origin: center;
+    animation: flyAirplane5 10s linear infinite;
+}
+/* 飞机飞行的关键帧 */
+@keyframes flyAirplane {
+    0% {
+        top: 5%;
+        left: -20%;
+        transform: rotate(100deg);
+    }
+    25% {
+        top: 45%;
+        left: 0%;
+        transform: rotate(135deg);
+    }
+    50% {
+        top: 95%;
+        left: 30%;
+        transform: rotate(90deg);
+    }
+    75% {
+        top: 40%;
+        left:60%;
+        transform: rotate(45deg);
+    }
+
+    100% {
+        top: 5%;
+        left: 99%;
+        transform: rotate(75deg);
+    }
+}
+
+@keyframes flyAirplane2 {
+    0% {
+        top: 20%;
+        left: 0%;
+        transform: rotate(75deg);
+    }
+    25% {
+        top: 45%;
+        left: 25%;
+        transform: rotate(135deg);
+    }
+    50% {
+            top: 85%;
+            left: 40%;
+            transform: rotate(90deg);
+    }
+    75% {
+        top: 45%;
+        left: 75%;
+        transform: rotate(45deg);
+    }
+
+    100% {
+        top: 10%;
+        left: 100%;
+        transform: rotate(100deg);
+    }
+}
+
+
+@keyframes flyAirplane3 {
+    0% {
+        top: 80%;
+        left: 0%;
+        transform: rotate(60deg);
+    }
+    25% {
+        top: 55%;
+        left: 20%;
+        transform: rotate(75deg);
+    }
+    50% {
+            top: 30%;
+            left: 52%;
+            transform: rotate(90deg);
+    }
+    75% {
+        top: 65%;
+        left: 73%;
+        transform: rotate(135deg);
+    }
+
+    100% {
+        top: 90%;
+        left: 95%;
+        transform: rotate(110deg);
+    }
+}
+
+@keyframes flyAirplane4 {
+    0% {
+        top: 100%;
+        left: 0%;
+        transform: rotate(0deg);
+    }
+
+
+    100% {
+        top: 100%;
+        left: 95%;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes flyAirplane5 {
+    0% {
+        top: 100%;
+        left: 5%;
+        transform: rotate(0deg);
+    }
+
+
+    100% {
+        top: 100%;
+        left: 100%;
+        transform: rotate(0deg);
+    }
+}
+
+.guding {
+    overflow: hidden; /* 禁止滚动条 */
+    height: 100%; /* 保证高度覆盖整个视口 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 背景音乐控制 */
+#music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#music-control i {
+    margin-right: 5px;
+    color: #ff6f61;
+}
+
+#music-control span {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#play-pause-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ff6f61;
+    font-size: 1.2rem;
+}
+
+#fireworks-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #index_page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    opacity: 1;
+    animation: explosion 1.5s forwards;
+  }
+  
+  @keyframes explosion {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  /* 容器布局 */
+.lottery-container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    min-height: 95vh;
+    height: 100%;
+}
+
+/* 左侧操作区 */
+.lottery-operations {
+    flex: 1;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* 积分面板 */
+.score-board {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* 抽奖按钮 */
+.lottery-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin: 10px 0;
+    transition: transform 0.3s ease;
+}
+
+.lottery-btn.normal {
+    background: #ff6f61;
+    color: white;
+}
+
+.lottery-btn.exclusive {
+    background: #6c5ce7;
+    color: white;
+}
+
+.lottery-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 奖品历史记录 */
+.prize-history {
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.prize-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+/* 右侧规则面板 */
+.rule-panel {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pool-details div {
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.pool-a { background: #ffe5e5; }
+.pool-b { background: #e5f3ff; }
+
+/* 奖品详情弹窗 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
 }

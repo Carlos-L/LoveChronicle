@@ -10,6 +10,16 @@
     <header>
         <h1>时间线</h1>
     </header>
+    <nav>
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/timeline">时间线</a></li>
+            <li><a href="/game">游戏</a></li>
+            <li><a href="/gallery">照片墙</a></li>
+            <li><a href="/messages">留言板</a></li>
+            <li><a href="/lottery">抽奖</a></li>
+        </ul>
+    </nav>
     <main>
         <div class="timeline">
             {% for event in timeline %}
@@ -18,7 +28,7 @@
                 <div class="event-content">
                     <h2>{{ event.title }}</h2>
                     <p>{{ event.description }}</p>
-                    <img src="{{ url_for('static', filename=event.image) }}" alt="{{ event.title }}">
+                    <img src="{{ url_for('static', filename=event.image) }}" alt="{{ event.title }}" class="timeline-image">
                 </div>
             </div>
             {% endfor %}

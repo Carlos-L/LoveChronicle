@@ -1,0 +1,168 @@
+/* 基础样式 */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff6f61, #ff8e53);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* 游戏容器 */
+#game-container {
+    background-color: rgb(254, 230, 230);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#game-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 15px;
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* h1 {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+    font-weight: bold;
+} */
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 按钮样式 */
+/* button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px 0;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+} */
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #730e04;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
+
+/* 选择题选项按钮 */
+#choice-options button {
+    display: flex;
+    margin-top: 10px;
+    width: 80%;
+    margin-left: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 输入框样式 */
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    margin: 20px 0;
+    font-size: 1.2rem;
+    border: 2px solid #ffbab4;
+    border-radius: 5px;
+}
+
+/* 得分和计时器 */
+#score, #timer {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+/* 隐藏元素 */
+.hidden {
+    display: none;
+}
+
+/* 背景音乐按钮样式 */
+audio {
+    display: none;
+}
+
+/* 游戏结束动画效果 */
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#game-container {
+    animation: bounceIn 0.5s ease-out;
+}
+
+/* 结果页面样式 */
+#result-container {
+    background-color: rgb(254, 230, 230);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#result-container h2 {
+    color: #333;
+}
+
+#result-container p {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+#result-container button {
+    margin-top: 20px;
+    background-color: #ff6f61;
+}
+
+#result-container button:hover {
+    background-color: #863c35;
+}

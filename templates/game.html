@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情人节小游戏</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+</head>
+
+<body>
+    <audio id="background-music" loop>
+        <source src="{{ url_for('static', filename='audio/gamebackground.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div id="game-container">
+        <h1>爱情冒险</h1>
+        <p id="question">点击开始游戏！</p>
+        <button id="start-btn">开始游戏</button>
+        <div id="choice-options" class="hidden">
+            <!-- 按钮将由JavaScript动态生成 -->
+        </div>
+
+        <!-- 填空题输入框 -->
+        <div id="fill-blank" class="hidden">
+            <input type="text" id="user-answer" placeholder="请输入答案">
+            <button onclick="checkAnswer()">提交答案</button>
+        </div>
+
+        <p id="score">得分：0</p>
+        <div id="timer">时间：30</div>
+        <button onclick="window.location.href='/scores'">查看累计得分</button>
+        <div></div>
+        <button onclick="window.location.href='/'">返回首页</button>
+    </div>
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>

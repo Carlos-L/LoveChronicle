@@ -1,45 +1,78 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="guding">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Love Chronicle - 献给最爱的 小狼狼</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
-<body>
-    <!-- 页面头部 -->
-    <header>
-        <h1>Love Chronicle</h1>
-        <p>献给最爱的 小狼狼</p>
-    </header>
+<body class="guding" id = "index_page">
+    <!-- 背景音乐 -->
+    <audio id="background-music" loop>
+        <source src="{{ url_for('static', filename='audio/background.mp3') }}" type="audio/mpeg">
+        您的浏览器不支持音频播放。
+    </audio>
+    <div id="music-control">
+        <i class="fas fa-music"></i>
+        <span>背景音乐</span>
+        <button id="play-pause-btn">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
 
-    <!-- 导航栏 -->
-    <nav>
-        <a href="/">首页</a>
-        <a href="/timeline">时间线</a>
-        <a href="/game">游戏</a>
-        <a href="/gallery">照片墙</a>
-        <a href="/messages">留言板</a>
-    </nav>
+    <!-- 烟花特效容器 -->
+    <div id="fireworks-container">
 
-    <!-- 主要内容 -->
-    <main>
-        <section id="welcome">
-            <h2>欢迎来到我们的爱情故事</h2>
-            <p>点击上方导航栏，探索我们的点点滴滴。</p>
-        </section>
+    <!-- 信封动画 -->
+    
+    
+    
+    <!-- 页面内容 -->
+    <!-- <div id="content" class="hidden"> -->
+        <div id="content" >
+            <header>
+                <h1>Love Chronicle</h1>
+                <p>献给最爱的 小狼狼</p>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/timeline">时间线</a></li>
+                    <li><a href="/game">游戏</a></li>
+                    <li><a href="/gallery">照片墙</a></li>
+                    <li><a href="/messages">留言板</a></li>
+                    <li><a href="/lottery">抽奖</a></li>
+                </ul>
+            </nav>
+            <main>
+                <div id="airplane-container">
+                    <div id="airplane1"></div>
+                    <div id="airplane2"></div>
+                    <div id="airplane3"></div>
+                    <img id="airplane4" src="{{ url_for('static', filename='images/wolf.png') }}" alt="Airplane">
+                    <img id="airplane5" src="{{ url_for('static', filename='images/wolf.png') }}" alt="Airplane">
+                    <section id="welcome">
+                        <h2>欢迎来到我们的爱情故事</h2>
+                        <p>点击上方导航栏，探索我们的点点滴滴。</p>
+                    </section>
+                    <div class="wolf" id="wolf"></div>
+                </div>
+                
+            </main>
+            
+            <footer>
+                <p>&copy; 2025 Love Chronicle</p>
+            </footer>
+        </div>
+        
+    </div>
 
-        <!-- 小狼狼动画 -->
-        <div class="wolf" id="wolf" tabindex="-1"></div>
-    </main>
-
-    <!-- 页脚 -->
-    <footer>
-        <p>&copy; 2025 Love Chronicle</p>
-    </footer>
-
-    <!-- JavaScript 文件 -->
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/fireworks.js') }}"></script>
+    <!-- <script src="{{ url_for('static', filename='js/envelope.js') }}"></script> -->
+    
 </body>
 </html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>专属抽奖 - Love Chronicle</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">首页</a></li>
+            <li><a href="/timeline">时间线</a></li>
+            <li><a href="/game">游戏</a></li>
+            <li><a href="/gallery">照片墙</a></li>
+            <li><a href="/messages">留言板</a></li>
+            <li><a href="/lottery">抽奖</a></li>
+        </ul>
+    </nav>
+    <div class="lottery-container">
+        <!-- 左侧：抽奖操作区 -->
+        <div class="lottery-operations">
+            <div class="score-board">
+                <span>当前积分: </span>
+                <span id="score">加载中...</span>
+            </div>
+            
+            <button class="lottery-btn normal" onclick="drawLottery('normal')">
+                普通抽奖 (消耗10积分)
+            </button>
+            
+            <button class="lottery-btn exclusive" onclick="drawLottery('exclusive')">
+                专属抽奖 (消耗30积分)
+            </button>
+            
+            <div class="prize-history">
+                <h3>已获得奖品</h3>
+                <div id="prize-list"></div>
+            </div>
+        </div>
+
+        <!-- 右侧：规则说明 -->
+        <div class="rule-panel">
+            <h2>抽奖规则</h2>
+            <ul>
+                <li>普通抽奖：从全部奖池中随机抽取</li>
+                <li>专属抽奖：仅抽取A类功能卡</li>
+            </ul>
+            
+            <h2>奖池内容</h2>
+            <div class="pool-details">
+                <div class="pool-a">
+                    <h3>A类奖池</h3>
+                    <p>📸 美照 | 🎫 我为小狼狼服务的功能卡</p>
+                </div>
+                <div class="pool-b">
+                    <h3>B类奖池</h3>
+                    <p>🤣 丑照 | 🎆 小狼狼为我服务的功能卡</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 奖品详情弹窗 -->
+    <div id="prize-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="prize-detail-content"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/lottery.js') }}"></script>
+</body>
+</html>

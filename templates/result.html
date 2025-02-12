@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>游戏结束</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+</head>
+<body>
+    <div id="result-container">
+        <h1>恭喜你完成游戏！</h1>
+        <p>你的本次得分是：{{ request.args.get('score', 0) }}</p>
+        <button onclick="window.location.href='/game'">再玩一次</button>
+    </div>
+</body>
+</html>
